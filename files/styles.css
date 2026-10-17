@@ -1,0 +1,98 @@
+:root{
+  --blue:#004D98; --garnet:#A50044; --gold:#EDBB00; --ink:#0B1530; --paper:#EEF2F8; --white:#fff;
+  --display:"Barlow Condensed","Arial Narrow",sans-serif; --body:"Barlow",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --paper:#0B1530; --ink:#EEF2F8; --white:#14224A; }
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+h1,h2{font-family:var(--display);font-weight:800;line-height:.95;letter-spacing:.01em}
+h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:24px}
+
+/* Nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:10;display:flex;justify-content:space-between;align-items:center;
+  padding:12px 20px;background:var(--blue);color:#fff;border-bottom:4px solid var(--gold)}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:1.4rem;text-decoration:none}
+.crest{width:26px;height:30px;background:linear-gradient(90deg,var(--blue) 50%,var(--garnet) 50%);
+  border:2px solid var(--gold);border-radius:3px 3px 14px 14px}
+.nav nav{display:flex;gap:22px}
+.nav nav a{text-decoration:none;font-weight:600}
+.nav nav a:hover{color:var(--gold)}
+.burger{display:none;background:none;border:2px solid #fff;color:#fff;padding:6px 12px;border-radius:6px;font:inherit;cursor:pointer}
+
+/* Hero: las rayas blaugrana son el elemento protagonista */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;color:#fff;padding-top:70px}
+.stripes{position:absolute;inset:0;background:repeating-linear-gradient(90deg,var(--blue) 0 90px,var(--garnet) 90px 180px);
+  animation:slide 40s linear infinite}
+.stripes::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(5,10,30,.85))}
+@keyframes slide{to{background-position:360px 0}}
+.hero-text{position:relative;padding:0 20px 60px;max-width:1100px;margin:0 auto;width:100%}
+.hero h1{font-size:clamp(4.5rem,17vw,12rem);margin:10px 0 26px}
+.kicker{font-weight:600;color:var(--gold)}
+.btn{display:inline-block;background:var(--gold);color:#1a1400;font:600 1rem var(--body);padding:12px 26px;border:0;border-radius:999px;text-decoration:none;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+
+/* Partido */
+.match{padding:80px 0 40px}
+.match-card{display:grid;grid-template-columns:1fr 1.4fr 1fr;align-items:center;gap:20px;background:var(--white);
+  padding:28px;border-radius:16px;border-left:8px solid var(--blue);border-right:8px solid var(--garnet)}
+.team{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.badge{display:grid;place-items:center;width:84px;height:84px;border-radius:50%;font:800 1.6rem var(--display);color:#fff}
+.badge.bar{background:linear-gradient(90deg,var(--blue) 50%,var(--garnet) 50%);border:3px solid var(--gold)}
+.badge.rival{background:#555}
+.center{text-align:center}
+.countdown{display:flex;justify-content:center;gap:14px;margin-top:12px}
+.countdown div{min-width:64px}
+.countdown b{display:block;font:800 clamp(2.2rem,6vw,3.4rem)/1 var(--display);color:var(--blue)}
+@media (prefers-color-scheme: dark){.countdown b{color:var(--gold)}}
+.countdown small{font-size:.85rem;opacity:.75}
+
+/* Plantel */
+.squad{padding:50px 0 80px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.tab{font:600 .95rem var(--body);padding:8px 18px;border-radius:999px;border:2px solid var(--blue);background:transparent;color:var(--ink);cursor:pointer}
+.tab.active{background:var(--blue);color:#fff}
+.players{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px}
+.player{position:relative;background:var(--white);border-radius:12px;padding:20px 18px 18px;overflow:hidden;min-height:150px;
+  border-top:6px solid var(--blue)}
+.player:nth-child(even){border-top-color:var(--garnet)}
+.player .num{position:absolute;right:10px;top:-6px;font:800 4.8rem/1 var(--display);opacity:.14}
+.player strong{display:block;font:800 1.5rem/1.1 var(--display);margin-top:34px}
+.player span{font-size:.9rem;opacity:.75}
+
+/* Noticias */
+.news{padding:60px 0;background:var(--blue);color:#fff}
+.news-grid{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+.card{background:rgba(255,255,255,.1);border-radius:12px;padding:24px;border-bottom:4px solid var(--gold)}
+.card:first-child{grid-row:span 2;display:flex;flex-direction:column;justify-content:flex-end;min-height:280px;
+  background:linear-gradient(160deg,var(--garnet),#4a0022)}
+.card h3{font:800 1.7rem/1.1 var(--display);margin:6px 0 8px}
+.card time{font-size:.85rem;color:var(--gold)}
+
+/* Club */
+.club{padding:80px 0}
+.club-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start}
+.club p{max-width:60ch;margin-bottom:14px}
+.subscribe{background:var(--white);padding:26px;border-radius:14px;display:grid;gap:12px}
+.subscribe label{font-weight:600}
+.subscribe input{padding:12px 14px;border-radius:8px;border:2px solid var(--blue);font:inherit;background:transparent;color:inherit}
+.msg{min-height:1.4em;font-weight:600}
+.msg.error{color:#d11a4a}.msg.ok{color:#0a8a4a}
+footer{background:var(--ink);color:var(--paper);padding:26px 20px;text-align:center;font-size:.9rem}
+@media (prefers-color-scheme: dark){footer{background:#050a1c;color:#EEF2F8}}
+
+@media (max-width:760px){
+  .burger{display:block}
+  .nav nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--blue)}
+  .nav nav.open{display:flex}
+  .nav nav a{padding:14px 20px;border-top:1px solid rgba(255,255,255,.2)}
+  .match-card{grid-template-columns:1fr}
+  .news-grid,.club-grid{grid-template-columns:1fr}
+  .card:first-child{grid-row:auto}
+}
+@media (prefers-reduced-motion:reduce){.stripes{animation:none}html{scroll-behavior:auto}}

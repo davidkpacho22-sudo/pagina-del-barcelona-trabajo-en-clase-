@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FC Barcelona · Més que un club</title>
+<meta name="description" content="Página de fan del FC Barcelona hecha con HTML, CSS y JavaScript.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav" id="nav">
+  <a class="brand" href="#inicio"><span class="crest" aria-hidden="true"></span>FC Barcelona</a>
+  <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">Menú</button>
+  <nav id="menu">
+    <a href="#partido">Próximo partido</a>
+    <a href="#plantel">Plantel</a>
+    <a href="#noticias">Noticias</a>
+    <a href="#club">El club</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="stripes" aria-hidden="true"></div>
+  <div class="hero-text">
+    <p class="kicker">Fundado el 29 de noviembre de 1899</p>
+    <h1>Més que<br>un club</h1>
+    <a class="btn" href="#plantel">Conocer el plantel</a>
+  </div>
+</section>
+
+<section class="match" id="partido">
+  <div class="wrap">
+    <h2>Próximo partido</h2>
+    <div class="match-card">
+      <div class="team"><span class="badge bar">FCB</span><strong>FC Barcelona</strong></div>
+      <div class="center">
+        <p id="matchInfo">Cargando…</p>
+        <div class="countdown" id="countdown" aria-live="off">
+          <div><b id="d">0</b><small>días</small></div>
+          <div><b id="h">0</b><small>horas</small></div>
+          <div><b id="m">0</b><small>min</small></div>
+          <div><b id="s">0</b><small>seg</small></div>
+        </div>
+      </div>
+      <div class="team"><span class="badge rival" id="rivalBadge">RIV</span><strong id="rivalName">Rival</strong></div>
+    </div>
+  </div>
+</section>
+
+<section class="squad" id="plantel">
+  <div class="wrap">
+    <h2>Plantel</h2>
+    <div class="tabs" role="tablist" aria-label="Filtrar por posición">
+      <button class="tab active" data-pos="Todos" role="tab" aria-selected="true">Todos</button>
+      <button class="tab" data-pos="Portero" role="tab" aria-selected="false">Porteros</button>
+      <button class="tab" data-pos="Defensa" role="tab" aria-selected="false">Defensas</button>
+      <button class="tab" data-pos="Medio" role="tab" aria-selected="false">Medios</button>
+      <button class="tab" data-pos="Delantero" role="tab" aria-selected="false">Delanteros</button>
+    </div>
+    <ul class="players" id="players"></ul>
+  </div>
+</section>
+
+<section class="news" id="noticias">
+  <div class="wrap">
+    <h2>Noticias</h2>
+    <div class="news-grid" id="newsGrid"></div>
+  </div>
+</section>
+
+<section class="club" id="club">
+  <div class="wrap club-grid">
+    <div>
+      <h2>El club</h2>
+      <p>Con sede en Barcelona, el club juega en el Spotify Camp Nou y ha construido su identidad con La Masia, su cantera, y un estilo de juego basado en la posesión.</p>
+      <p>Esta página es un proyecto de estudio inspirado en la web oficial. No es el sitio oficial del club.</p>
+    </div>
+    <form class="subscribe" id="subscribe" novalidate>
+      <label for="email">Recibe novedades por correo</label>
+      <input id="email" type="email" placeholder="tu@correo.com" required>
+      <button class="btn" type="submit">Suscribirme</button>
+      <p class="msg" id="formMsg" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p>Proyecto estudiantil · No afiliado al FC Barcelona · Sitio oficial: <a href="https://www.fcbarcelona.es/es/" target="_blank" rel="noopener">fcbarcelona.es</a></p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
